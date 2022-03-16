@@ -1,32 +1,10 @@
 .homeContainer {
+  background-color: #eee;
   padding: 20rpx;
   box-sizing: border-box;
 }
-.homeContainer .header {
-  display: flex;
-  align-items: center;
-}
-.homeContainer .header .logo {
-  width: 64rpx;
-  height: 76rpx;
-}
-.homeContainer .header .search {
-  display: flex;
-  flex: 1;
-  align-items: center;
-  background-color: #f6f6f6;
-  margin: 0 20rpx;
-  border-radius: 10rpx;
-}
-.homeContainer .header .search .iconfont {
-  margin: 0 30rpx 0 20rpx;
-}
-.homeContainer .header .hamburger {
-  width: 44rpx;
-  height: 76rpx;
-}
 .homeContainer .scrollList {
-  height: calc(100vh - 156rpx);
+  height: calc(100vh - 116rpx);
 }
 .homeContainer .scrollList .banner .bannerList {
   width: 100%;
@@ -42,6 +20,8 @@
   height: 216rpx;
 }
 .homeContainer .scrollList .typeList {
+  background-color: #fff;
+  border-radius: 20rpx;
   margin-top: 20rpx;
 }
 .homeContainer .scrollList .typeList .typeItem {
@@ -52,6 +32,13 @@
 .homeContainer .scrollList .typeList .typeItem .typeImg {
   height: 156rpx;
   width: 20%;
+}
+.homeContainer .scrollList .brandRush {
+  background-color: #fff;
+  border-radius: 20rpx;
+  margin-top: 20rpx;
+  height: 258rpx;
+  width: 100%;
 }
 .homeContainer .scrollList .brandRush .header {
   height: 80rpx;
@@ -69,11 +56,130 @@
   vertical-align: middle;
 }
 .homeContainer .scrollList .brandRush .body {
+  height: 178rpx;
+  width: 100%;
   display: flex;
-  justify-content: space-evenly;
 }
-.homeContainer .scrollList .brandRush .body .bodyImg {
+.homeContainer .scrollList .brandRush .body view {
   width: 158rpx;
   height: 158rpx;
+}
+.homeContainer .scrollList .brandRush .body view .bodyImg {
+  width: 158rpx;
+  height: 158rpx;
+}
+.homeContainer .scrollList .brandRush .body .more {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 158rpx;
+  height: 158rpx;
+  flex-shrink: 0;
+}
+.homeContainer .scrollList .brandRush .body .more .text {
+  color: #666;
+  font-size: 24rpx;
+  width: 26rpx;
+}
+.homeContainer .scrollList .brandRush .body .more .iconfont {
+  color: #666;
+}
+.homeContainer .scrollList .library {
+  background-color: #fff;
+  border-radius: 20rpx;
+  margin-top: 20rpx;
+}
+.homeContainer .scrollList .library .libraryTitle {
+  text-align: center;
+  margin: 30rpx 0;
+  font-weight: bolder;
+}
+.homeContainer .scrollList .library .libraryBody {
+  height: 536rpx;
+}
+.homeContainer .scrollList .library .libraryBody .libraryItem {
+  display: flex;
+  justify-content: space-between;
+}
+.homeContainer .scrollList .library .libraryBody .libraryItem .library {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.homeContainer .scrollList .library .libraryBody .libraryItem .library .libraryText1 {
+  font-weight: bolder;
+  font-size: 30rpx;
+}
+.homeContainer .scrollList .library .libraryBody .libraryItem .library .libraryText2 {
+  font-size: 26rpx;
+}
+.homeContainer .scrollList .library .libraryBody .libraryItem .library .libraryImg {
+  height: 164rpx;
+  width: 164rpx;
+}
+.homeContainer .scrollList .recommend {
+  background-color: #fff;
+  border-radius: 20rpx;
+  margin-top: 20rpx;
+  margin: 40rpx 0;
+}
+.homeContainer .scrollList .recommend .title {
+  display: flex;
+  justify-content: space-around;
+}
+.homeContainer .scrollList .recommend .title .titleItem {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.homeContainer .scrollList .recommend .title .titleItem .text1 {
+  font-size: 38rpx;
+}
+.homeContainer .scrollList .recommend .title .titleItem .text1.active {
+  font-weight: bolder;
+}
+.homeContainer .scrollList .recommend .title .titleItem .text2 {
+  font-size: 26rpx;
+}
+.homeContainer .scrollList .recommend .title .titleItem .text2.active {
+  background-color: #d7b27a;
+  border-radius: 20rpx;
+}
+.homeContainer .scrollList .recommend .recommendList {
+  display: flex;
+  flex-wrap: wrap;
+}
+.homeContainer .scrollList .recommend .recommendList .recommendItem {
+  margin: 20rpx 0;
+  width: 354rpx;
+}
+.homeContainer .scrollList .recommend .recommendList .recommendItem .recommendImg {
+  width: 354rpx;
+  height: 354rpx;
+}
+.homeContainer .scrollList .recommend .recommendList .recommendText {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font-size: 28rpx;
+}
+.homeContainer .scrollList .recommend .recommendList .recommendPrice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.homeContainer .scrollList .recommend .recommendList .recommendPrice .price {
+  font-weight: bolder;
+}
+.homeContainer .scrollList .recommend .recommendList .recommendPrice .similar {
+  width: 100rpx;
+  height: 26rpx;
+  text-align: center;
+  margin-top: 8rpx;
+  line-height: 26rpx;
+  border: 2rpx solid #ccc;
+  font-size: 20rpx;
+  border-radius: 20rpx;
 }
 

@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 3246246 */
-  src: url('//at.alicdn.com/t/font_3246246_vxx5oekaz3o.woff2?t=1647260425261') format('woff2'),
-       url('//at.alicdn.com/t/font_3246246_vxx5oekaz3o.woff?t=1647260425261') format('woff'),
-       url('//at.alicdn.com/t/font_3246246_vxx5oekaz3o.ttf?t=1647260425261') format('truetype');
+  src: url('//at.alicdn.com/t/font_3246246_m4d2q7enfb.woff2?t=1647329822178') format('woff2'),
+       url('//at.alicdn.com/t/font_3246246_m4d2q7enfb.woff?t=1647329822178') format('woff'),
+       url('//at.alicdn.com/t/font_3246246_m4d2q7enfb.ttf?t=1647329822178') format('truetype');
 }
 .iconfont {
   font-family: "iconfont" !important;
@@ -10,6 +10,24 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.icon-dianpu:before {
+  content: "\e736";
+}
+.icon-xuanzhong31:before {
+  content: "\e605";
+}
+.icon-weixuanzhong:before {
+  content: "\e8bb";
+}
+.icon-shoucangxuanzhong:before {
+  content: "\e604";
+}
+.icon-pinglun:before {
+  content: "\e65f";
+}
+.icon-xiangyou3fill:before {
+  content: "\e777";
 }
 .icon-gouwucheman:before {
   content: "\e600";
@@ -60,5 +78,29 @@
 /*每个页面公共css */
 page{
 	height: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+.header .logo {
+  width: 64rpx;
+  height: 76rpx;
+}
+.header .search {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  background-color: #f6f6f6;
+  margin: 0 20rpx;
+  border-radius: 10rpx;
+}
+.header .search .iconfont {
+  margin: 0 30rpx 0 20rpx;
+}
+.header .hamburger {
+  width: 44rpx;
+  height: 76rpx;
 }
 
