@@ -258,7 +258,14 @@ var _default =
 {
   data: function data() {
     return {};
-  } };exports.default = _default;
+  },
+  methods: {
+    toIndex: function toIndex() {
+      wx.reLaunch({ url: '/pages/index/index' });
+    },
+    toCategory: function toCategory() {
+      wx.reLaunch({ url: '/pages/category/category' });
+    } } };exports.default = _default;
 
 /***/ }),
 /* 17 */

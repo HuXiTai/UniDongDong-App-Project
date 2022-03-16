@@ -283,6 +283,10 @@ var _vuex = __webpack_require__(/*! vuex */ 20);function ownKeys(object, enumera
 
 
       wx.setStorageSync("goods_key", goods);
+    },
+
+    toCategory: function toCategory() {
+      wx.reLaunch({ url: '/pages/category/category' });
     } }),
 
   computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({},

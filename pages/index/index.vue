@@ -12,13 +12,13 @@
 		<search />
 
 		<scroll-view class="scrollList" scroll-y="true" enable-flex>
-			<view class="banner">
-				<swiper circular class="bannerList" :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
+			<view class="banner" @click="toCategory">
+				<swiper circular class="bannerList" indicator-active-color="red" :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
 					<swiper-item class="bannerItem" v-for="(banner, index) of bannerList" :key="banner.imgUrl"><image :src="banner.imgUrl" class="bannerImg"></image></swiper-item>
 				</swiper>
 			</view>
 
-			<swiper circular class="typeList" :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
+			<swiper circular class="typeList" :indicator-dots="false" :autoplay="true" :interval="3000" :duration="1000">
 				<swiper-item class="typeItem">
 					<image v-for="indexBanner1 of indexBannerList.banner1" :key="indexBanner1.imgUrl" class="typeImg" :src="indexBanner1.imgUrl"></image>
 				</swiper-item>
@@ -142,6 +142,10 @@ export default {
 			});
 			
 			wx.setStorageSync("goods_key",goods)
+		},
+		
+		toCategory() {
+			wx.reLaunch({ url: '/pages/category/category' });
 		}
 	},
 	computed: {

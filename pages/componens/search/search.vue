@@ -1,11 +1,11 @@
 <template>
 	<view class="header">
-		<image src="../../../static/images/logo.png" class="logo"></image>
+		<image src="../../../static/images/logo.png" class="logo" @click="toIndex"></image>
 		<view class="search">
 			<text class="iconfont icon-sousuo:before "></text>
 			<input type="text" class="searchIpt" placeholder="搜索商品/店铺/总类" />
 		</view>
-		<image src="../../../static/images/hamburger.png" class="hamburger"></image>
+		<image src="../../../static/images/hamburger.png" class="hamburger" @click="toCategory"></image>
 	</view>
 </template>
 
@@ -13,6 +13,14 @@
 export default {
 	data() {
 		return {};
+	},
+	methods: {
+		toIndex() {
+			wx.reLaunch({ url: '/pages/index/index' });
+		},
+		toCategory() {
+			wx.reLaunch({ url: '/pages/category/category' });
+		}
 	}
 };
 </script>

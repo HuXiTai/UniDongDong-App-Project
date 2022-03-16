@@ -3,11 +3,11 @@
 		<view class="momentSeckill">
 			<view class="title">
 				<image src="../../static/images/seckill.png" class="titleImg"></image>
-				<text class="titleText">更多></text>
+				<text class="titleText" @click="toCategory">更多></text>
 			</view>
 		</view>
 		
-		<scroll-view scroll-x="true" enable-flex class="seckillList">
+		<scroll-view  scroll-x="true" enable-flex class="seckillList">
 			<view class="seckillItem" v-for="item of seckill" :key="item.productId">
 				<image :src="item.productImageUrl" class="seckillImg"></image>
 				<text class="text1">{{item.productName}}</text>
@@ -23,7 +23,7 @@
 		<view class="ranking" v-for="(item,index) of goodValueData" :key="item.productId">
 			<view class="title">
 				<text class="best">畅销榜第{{index+1}}名</text>
-				<text class="more">更多></text>
+				<text class="more" @click="toCategory">更多></text>
 			</view>
 			<view class="body">
 				<view class="left">
@@ -46,7 +46,7 @@
 							<text class="text2">{{item.commentCount}}</text>
 						</view>
 						
-						<text class="iconfont .icon-gouwuchekong abc"></text>
+						<text class="iconfont .icon-gouwuchekong abc" @click="toShopcart"></text>
 					</view>
 				</view>
 			</view>
@@ -68,7 +68,14 @@ export default {
 		this.getDeserveData()
 	},
 	methods: {
-		...mapActions("goodvalue",["getDeserveData"])
+		...mapActions("goodvalue",["getDeserveData"]),
+		
+		toCategory() {
+			wx.reLaunch({ url: '/pages/category/category' });
+		},
+		toShopcart(){
+			wx.reLaunch({ url: '/pages/shopcart/shopcart' });
+		}
 	},
 	computed:{
 		...mapState("goodvalue",["seckill","goodValueData"])
