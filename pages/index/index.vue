@@ -13,12 +13,12 @@
 
 		<scroll-view class="scrollList" scroll-y="true" enable-flex>
 			<view class="banner">
-				<swiper class="bannerList" :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
+				<swiper circular class="bannerList" :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
 					<swiper-item class="bannerItem" v-for="(banner, index) of bannerList" :key="banner.imgUrl"><image :src="banner.imgUrl" class="bannerImg"></image></swiper-item>
 				</swiper>
 			</view>
 
-			<swiper class="typeList" :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
+			<swiper circular class="typeList" :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
 				<swiper-item class="typeItem">
 					<image v-for="indexBanner1 of indexBannerList.banner1" :key="indexBanner1.imgUrl" class="typeImg" :src="indexBanner1.imgUrl"></image>
 				</swiper-item>
@@ -259,6 +259,9 @@ export default {
 			.title
 				display flex
 				justify-content space-around
+				position sticky
+				top 0
+				background-color #fff
 				.titleItem
 					display flex
 					flex-direction column

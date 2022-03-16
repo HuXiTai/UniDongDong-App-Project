@@ -126,6 +126,10 @@
 .homeContainer .scrollList .recommend .title {
   display: flex;
   justify-content: space-around;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
 }
 .homeContainer .scrollList .recommend .title .titleItem {
   display: flex;
