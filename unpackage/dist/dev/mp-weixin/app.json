@@ -54,5 +54,6 @@
   },
   "usingComponents": {
     "search": "/pages/componens/search/search"
-  }
+  },
+  "sitemapLocation": "sitemap72.json"
 }

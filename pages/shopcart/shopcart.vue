@@ -2,10 +2,11 @@
 	<view class="cartContainer">
 		<view class="title">
 			<text class="text1">购物车</text>
-			<text class="text2">编辑</text>
+			<text class="text3" v-show="isEdit" @click="UPDATE_DATA">删除</text>
+			<text class="text2" :class="{active:isEdit}" @click="isEdit = !isEdit">编辑</text>
 		</view>
 		<!-- 购物车列表 -->
-		<scroll-view scroll-y="true" class="scroll-view" >
+		<scroll-view scroll-y="true" class="scroll-view">
 			<view class="cartList">
 				<view class="cartItem" v-for="item of goods">
 					<text class="iconfont icon-xuanzhong31" :class="{ selected: item.result_items[0].isChecked }" @click="checkedOne(item)"></text>
@@ -18,14 +19,14 @@
 					</view>
 					<!-- 控制数量 -->
 					<view class="countCtrl">
-						<text class="add" @click="changeNum(1,item,index)">+</text>
+						<text class="add" @click="changeNum(1, item, index)">+</text>
 						<text class="count">{{ item.result_items[0].count }}</text>
-						<text class="del" @click="changeNum(-1,item,index)">-</text>
+						<text class="del" @click="changeNum(-1, item, index)">-</text>
 					</view>
 				</view>
 			</view>
 		</scroll-view>
-		
+
 		<!-- 底部下单 -->
 		<view class="cartFooter">
 			<text class="iconfont icon-xuanzhong31" :class="{ selected: isCheckedAll }" @click="checkedAll"></text>
@@ -39,12 +40,13 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapMutations } from 'vuex';
 export default {
 	data() {
 		return {
 			checkNum: 0,
-			checkedNum: 0
+			checkedNum: 0,
+			isEdit: false
 		};
 	},
 	computed: {
@@ -78,22 +80,23 @@ export default {
 			let statu = !this.isCheckedAll;
 			this.goods.forEach(item => (item.result_items[0].isChecked = statu));
 		},
-		changeNum(num,item,index) {
+		changeNum(num, item, index) {
 			item.result_items[0].count += num;
-			if(item.result_items[0].count <= 0){
+			if (item.result_items[0].count <= 0) {
 				wx.showModal({
-				  title: '提示',
-				  content: `你确定要删除它吗？`,
-				  success: (res) => {
-				    if (res.confirm) {
-				      this.goods.splice(index,1)
-				    } else if (res.cancel) {
-				      console.log('用户点击取消')
-				    }
-				  }
-				})
+					title: '提示',
+					content: `你确定要删除它吗？`,
+					success: res => {
+						if (res.confirm) {
+							this.goods.splice(index, 1);
+						} else if (res.cancel) {
+							console.log('用户点击取消');
+						}
+					}
+				});
 			}
-		}
+		},
+		...mapMutations('detail', ['UPDATE_DATA'])
 	}
 };
 </script>
@@ -120,6 +123,16 @@ export default {
 			font-size 26upx
 			line-height 80upx
 			margin-right 30upx
+			&.active
+				color red
+		.text3
+			margin-top 20rpx
+			width 200rpx
+			height 50rpx
+			background-color red
+			color #fff
+			text-align center
+			left 50rpx
 	.header
 		display flex
 		background #eee
@@ -176,7 +189,6 @@ export default {
 							-webkit-box-orient vertical
 							-webkit-line-clamp 2
 							overflow hidden
-	
 						.price
 							color #BB2C08
 				.countCtrl

@@ -62,7 +62,6 @@ export default {
 	},
 	methods: {
 		addShopCart() {
-			console.log(123);
 			let obj = this.goods.find(item => item.result_items[0].item_id === this.goodsOne.result_items[0].item_id);
 			if(obj){
 				obj.result_items[0].count++
@@ -76,6 +75,12 @@ export default {
 				// obj.isChecked = true
 				this.goods.push(obj)
 			}
+			
+			wx.showToast({
+			  title: '添加购物车成功',
+			  icon: 'success',
+			  duration: 2000
+			})
 		}
 	},
 	computed: {

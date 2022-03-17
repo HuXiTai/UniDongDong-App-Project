@@ -3,7 +3,7 @@
 		<view class="loginOrRegister">
 			<view class="button" v-if="!userImg" @click="login">登录/注册</view>
 			<view class="afterLogin" v-else>
-				<image :src="userImg || '../../static/images/mylove.jpg'" class="userImg"></image>
+				<image :src="userImg || '../../static/images/mylove.jpg'" class="userImg" @click="logout"></image>
 				<text class="userName">胡熙泰</text>
 			</view>
 		</view>
@@ -48,6 +48,17 @@ export default {
 				success: res => {
 					this.userImg = res.userInfo.avatarUrl;
 					this.userName = res.userInfo.nickName;
+				}
+			});
+		},
+		logout() {
+			let _this = this
+			wx.showModal({
+				title: '提示',
+				content: '确定退出登录？',
+				success(res) {
+					_this.userImg = '';
+					_this.userName = '';
 				}
 			});
 		}
