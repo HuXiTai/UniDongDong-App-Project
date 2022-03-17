@@ -51,7 +51,7 @@
 				<text class="iconfont icon-xuanzhong31" :class="{ selected: isCheckedAll }" @click="checkedAll"></text>
 				<text class="allSelected">已选{{ cecked }}</text>
 				<view class="right">
-					<text class="totalPrice">合计:￥{{ sum }}</text>
+					<text class="totalPrice">合计:￥{{ sum / 100 }}</text>
 					<text class="preOrder">下单{{ cecked }}</text>
 				</view>
 			</view>
@@ -82,7 +82,7 @@ export default {
 		},
 		sum() {
 			return this.goods.reduce((p, c) => {
-				c.result_items[0].isChecked ? (p += c.result_items[0].price_effect * c.result_items[0].count) : p;
+				c.result_items[0].isChecked ? (p += c.result_items[0].price_effect * 100 * c.result_items[0].count) : p;
 				return p;
 			}, 0);
 		},
