@@ -7,9 +7,15 @@ import detail from "./modules/detail.js"
 
 Vue.use(Vuex)
 
-const state = {}
+const state = {
+	userInfo:""
+}
 const actions = {}
-const mutations = {}
+const mutations = {
+	SET_USER_INFO(state,value){
+		state.userInfo=value
+	}
+}
 const getters = {}
 
 export default new Vuex.Store({

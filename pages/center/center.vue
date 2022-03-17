@@ -48,17 +48,18 @@ export default {
 				success: res => {
 					this.userImg = res.userInfo.avatarUrl;
 					this.userName = res.userInfo.nickName;
+					this.$store.commit('SET_USER_INFO', res.userInfo);
 				}
 			});
 		},
 		logout() {
-			let _this = this
 			wx.showModal({
 				title: '提示',
 				content: '确定退出登录？',
-				success(res) {
-					_this.userImg = '';
-					_this.userName = '';
+				success: res => {
+					this.userImg = '';
+					this.userName = '';
+					this.$store.commit('SET_USER_INFO', "");
 				}
 			});
 		}

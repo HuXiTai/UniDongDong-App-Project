@@ -1,27 +1,52 @@
 <template>
 	<view class="detailContainer">
-		<view class="header">
-			<icon class="iconfont icon-shouye2"></icon>
-			<text>商品详情</text>
-			<view class="shopCart">
-				<icon class="iconfont icon-gouwuche2"></icon>
-				<text class="count">1</text>
-			</view>
-		</view>
 
 		<!-- 内容区 -->
 		<scroll-view class="content" scroll-y="true">
 			<image class="detailImg" :src="goodsOne.result_items[0].item_img"></image>
-			<view class="tag">{{ goodsOne.result_items[0].pub_nm }}</view>
-			<text class="price">￥ {{ goodsOne.result_items[0].price_effect }}</text>
-			<view class="info">{{ goodsOne.result_items[0].item_title }}</view>
-
-			<!-- 准备内容 -->
-			<view class="list" style="margin-left: 5%;font-size: 28upx;line-height: 50upx;">
-				<view>1) 100%桑蚕丝填充，丝丝精粹不掺杂</view>
-				<view>2) 创新井字拉网工艺，桑蚕丝不易黏连结块</view>
-				<view>3) 两种面料可选，贡缎手感细腻，竹棉清爽透气</view>
-				<view>4) AB双面设计，多种活性印花不易褪色</view>
+			
+			<view class="body">
+				<view class="title">
+					<text class="titleFlag">当当自营</text>
+					<view class="info">{{ goodsOne.result_items[0].item_title }}</view>
+				</view>
+				
+				<view class="priceList">
+					<view class="nowPrice">
+						<text class="priceText">￥{{goodsOne.result_items[0].price_effect}}</text>
+						<text class="discount">({{goodsOne.result_items[0].discount_effect}})</text>
+					</view>
+					<view class="originalPrice">
+						定价<text class="originaText">￥{{goodsOne.result_items[0].price_orig}}</text>
+					</view>
+				</view>
+			</view>
+			
+			
+			
+			<view class="detail">
+				<view class="detailItem">
+					<text class="detailTitle">作者</text>
+					<text class="name">{{goodsOne.result_items[0].auth_nm}}</text>
+					<text class="text">查看作品></text>
+				</view>
+				
+				<view class="detailItem">
+					<text class="detailTitle">出版</text>
+					<text class="name">{{goodsOne.result_items[0].pub_nm}}</text>
+					<text class="text">查看作品></text>
+				</view>
+				
+				<view class="detailItem">
+					<text class="detailTitle">排名</text>
+					<text class="name">小说销售榜排第{{goodsOne.result_items[0].ebook_subtype}}位</text>
+					<text class="text">查看作品></text>
+				</view>
+				
+				<view class="detailItem">
+					<text class="detailTitle">分类</text>
+					<text class="name">{{goodsOne.result_items[0].item_tags[1].tag_title}}</text>
+				</view>
 			</view>
 		</scroll-view>
 
@@ -94,50 +119,73 @@ export default {
 	width 100%
 	display flex
 	flex-direction column
-	.header
-		height 90upx
-		line-height 90upx
-		background #FFFFFF
-		display flex
-		text-align center
-		.iconfont
-			width 90upx
-			height 90upx
-			font-size 50upx
-		text
-			flex 1
-		.shopCart
-			position relative
-			.count
-				color red
-				position absolute
-				top -25upx
-				right 5upx
-				font-size 26upx
+	background-color #eee
+	
+	
 	.content
-		height calc(100vh - 190upx)
+		padding 20rpx
+		height calc(100vh - 101upx)
+		box-sizing:border-box
 		.detailImg
 			width 100%
 			height 750upx
-		.tag
-			width 90%
-			height 100upx
-			line-height 100upx
-			text-align center
-			font-size 32upx
-			color #FFFFFF
-			margin 20upx auto
-			background #BB2C08
-			border-radius 10upx
-		.price
-			font-size 50upx
-			color #DD1A21
-			line-height 70upx
-			margin-left 5%
-		.info
-			font-size 28upx
-			color #333
-			margin-left 5%
+		.body
+			margin-top 15rpx
+			background-color #fff
+			padding 20rpx
+			box-sizing:border-box
+			.title
+				padding-top 20rpx
+				background-color #fff
+				.titleFlag
+					float left
+					font-size 22rpx
+					width 120rpx
+					height 24rpx
+					text-align center
+					line-height 24rpx
+					background-color #ff4736
+					color #fff
+					border-radius 20rpx
+					margin 6rpx 10rpx 0 10rpx
+				.info
+					font-size 28rpx
+			.priceList
+				margin-top 20rpx
+				background-color #fff
+				.nowPrice
+					.priceText
+						color red
+						margin 0 20rpx 20rpx 0
+					.discount
+						font-size 22rpx
+						color #999
+				.originalPrice
+					font-size 22rpx
+					color #999
+					.originaText
+						text-decoration lin-through
+		.detail
+			margin-top 20rpx
+			background-color #FFFFFF
+			border-radius 20rpx
+			.detailItem
+				display flex
+				align-items center
+				height 80rpx
+				font-size 26rpx
+				padding 20rpx
+				box-sizing:border-box
+				border-bottom 2rpx solid #999
+				.detailTitle
+					width 100rpx
+					color #999
+				.name
+					flex 1
+					color #333333
+				.text
+					width 150rpx
+					color #999
 	.detailFooter
 		position fixed
 		bottom 0
@@ -158,22 +206,24 @@ export default {
 			.iconfont
 				height 30rpx
 				font-size 38rpx
+				color #999
 			.shopText
 				height 50rpx
 				font-size 26rpx
+				color #999
 		.service
 			width 60upx
 			height 60upx
 			margin 20upx 40upx
 		.btn
-			width 180upx
+			width 220upx
 			height 100%
 			text-align center
 			font-size 28upx
 			&.buyNow
-				color #333
-				border-left 1upx solid #eee
+				color #fff
+				background-color #ffbe23
 			&.addShopCart
-				background #DD1A21
+				background-color #f3554b
 				color #fff
 </style>

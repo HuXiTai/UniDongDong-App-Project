@@ -8801,9 +8801,15 @@ var _detail = _interopRequireDefault(__webpack_require__(/*! ./modules/detail.js
 
 _vue.default.use(_vuex.default);
 
-var state = {};
+var state = {
+  userInfo: "" };
+
 var actions = {};
-var mutations = {};
+var mutations = {
+  SET_USER_INFO: function SET_USER_INFO(state, value) {
+    state.userInfo = value;
+  } };
+
 var getters = {};var _default =
 
 new _vuex.default.Store({
